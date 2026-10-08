@@ -153,6 +153,7 @@ input:focus, textarea:focus { outline: 2px solid var(--yellow); outline-offset: 
 textarea { min-height: 120px; resize: vertical; }
 .send { justify-self: start; border: 0; border-radius: 999px; background: var(--white); color: var(--purple); font-weight: 700; padding: 12px 26px; font-size: 1rem; cursor: pointer; font-family: var(--font-head); }
 .send:hover { background: var(--yellow); color: var(--navy); }
+.send:disabled { opacity: .7; cursor: wait; }
 .note { font-size: 0.85rem; opacity: 0.85; min-height: 1.2em; }
 
 footer { background: var(--purple); color: var(--white); border-top: 1px solid rgba(255,255,255,0.2); }
@@ -393,19 +394,35 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     });
   })();
 
-  // Contact form: opens the visitor's email app with the message filled in.
-  document.getElementById('msg').addEventListener('submit', function (e) {
+  // Contact form: sends the message to my inbox through FormSubmit; falls back to a Gmail compose link.
+  document.getElementById('msg').addEventListener('submit', async function (e) {
     e.preventDefault();
+    const form = this;
     const note = document.getElementById('note');
+    const btn = form.querySelector('.send');
     const name = document.getElementById('f-name').value.trim();
     const from = document.getElementById('f-email').value.trim();
     const text = document.getElementById('f-text').value.trim();
     if (!from || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(from)) { note.textContent = 'Enter a valid email so I can reply.'; return; }
     if (!text) { note.textContent = 'Add a short message before sending.'; return; }
     const subject = 'Portfolio enquiry' + (name ? ' from ' + name : '');
-    const body = text + '\n\n' + (name ? name + '\n' : '') + from;
-    window.location.href = 'mailto:yaswanthkumarravi@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    note.textContent = 'Opening your email app. If nothing opens, write to yaswanthkumarravi@gmail.com.';
+    btn.disabled = true; btn.textContent = 'Sending...'; note.textContent = '';
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/yaswanthkumarravi@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name: name || '(not given)', email: from, message: text, _subject: subject, _template: 'table', _captcha: 'false' })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || 'Send failed');
+      form.reset();
+      note.textContent = 'Thanks, your message was sent. I will reply to ' + from + '.';
+    } catch (err) {
+      const gmail = 'https://mail.google.com/mail/?view=cm&fs=1&to=yaswanthkumarravi@gmail.com&su=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(text + '\n\n' + (name ? name + '\n' : '') + from);
+      note.innerHTML = 'The message could not be sent from here. <a href="' + gmail + '" target="_blank" rel="noopener" style="color:inherit;font-weight:600">Write it in Gmail</a> or email yaswanthkumarravi@gmail.com.';
+    } finally {
+      btn.disabled = false; btn.textContent = 'Send message';
+    }
   });
 </script>
 </body>
