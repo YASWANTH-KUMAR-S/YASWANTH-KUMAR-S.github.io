@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Yaswanth Kumar, Full Stack .NET Developer at Kovai.co. C#, .NET 8, ASP.NET Core, Angular 19, MongoDB, Azure, OpenAI and RAG.">
+<meta property="og:title" content="Yaswanth Kumar · Full Stack .NET Developer">
+<meta property="og:description" content="Selected work, experience and skills: .NET 8, Angular 19, Azure, OpenAI/RAG and Claude-powered engineering workflows.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yaswanth-kumar-s.github.io/">
+<meta name="theme-color" content="#512bd4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23512bd4'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Arial' font-weight='700' font-size='13' fill='white'%3EYK%3C/text%3E%3C/svg%3E">
+<title>Yaswanth Kumar · Full Stack .NET Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a diagram-canvas hero (dot grid + node flow), then a single reading column of case studies, a typed career timeline, skills and contact. */
+:root {
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --ink: #131826;
+  --muted: #586074;
+  --line: #d9dee8;
+  --dot: #c9d0dd;
+  --accent: #512bd4;
+  --accent-soft: #ece7fd;
+  --ok: #0f7a5c;
+  --ok-soft: #e1f3ec;
+  --font-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.625rem;
+  --step-3: clamp(2.25rem, 1.6rem + 3vw, 3.75rem);
+  --radius: 10px;
+  --wrap: 1080px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1017; --surface: #151a24; --ink: #e8ebf2; --muted: #9aa3b5;
+    --line: #262d3b; --dot: #2a3242; --accent: #a594f9; --accent-soft: #241d45;
+    --ok: #5fd0a8; --ok-soft: #12302a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1017; --surface: #151a24; --ink: #e8ebf2; --muted: #9aa3b5;
+  --line: #262d3b; --dot: #2a3242; --accent: #a594f9; --accent-soft: #241d45;
+  --ok: #5fd0a8; --ok-soft: #12302a; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: var(--step-0); line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: 20px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+p { margin: 0; }
+.label {
+  font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--muted);
+}
+
+/* Header */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.mark { font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.mark span.node { width: 26px; height: 26px; border-radius: 7px; background: var(--accent); color: var(--bg); display: grid; place-items: center; font-size: 0.75rem; }
+.top nav { display: flex; gap: 20px; flex-wrap: wrap; }
+.top nav a { text-decoration: none; font-size: 0.92rem; color: var(--muted); }
+.top nav a:hover { color: var(--ink); }
+@media (max-width: 640px) { .top nav { display: none; } }
+
+/* Hero */
+.hero { padding-block: 56px 40px; }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+@media (max-width: 880px) { .hero .wrap { grid-template-columns: 1fr; gap: 32px; } }
+.hero-copy { min-width: 0; display: grid; gap: 20px; }
+.hero h1 { font-size: var(--step-3); font-weight: 800; line-height: 1.02; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .role { font-family: var(--font-mono); font-size: 0.95rem; color: var(--muted); }
+.hero .lede { font-size: 1.125rem; max-width: 34em; color: var(--ink); }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 8px;
+  font-weight: 600; font-size: 0.95rem; text-decoration: none; border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink); cursor: pointer; font-family: var(--font-body);
+}
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.btn:hover { border-color: var(--accent); }
+
+/* Diagram canvas */
+.canvas {
+  min-width: 0; position: relative; border: 1px solid var(--line); border-radius: 14px;
+  background-color: var(--surface);
+  background-image: radial-gradient(var(--dot) 1px, transparent 1.2px);
+  background-size: 18px 18px; padding: 18px 18px 14px;
+}
+.canvas .label { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.canvas svg { display: block; width: 100%; height: auto; margin-top: 8px; }
+.canvas .n rect { fill: var(--surface); stroke: var(--line); stroke-width: 1.5; transition: stroke .3s, fill .3s; }
+.canvas .n text { fill: var(--ink); font-family: var(--font-body); font-size: 13px; font-weight: 500; }
+.canvas .n .sub { fill: var(--muted); font-family: var(--font-mono); font-size: 10.5px; font-weight: 400; }
+.canvas .n.on rect { stroke: var(--accent); fill: var(--accent-soft); }
+.canvas .edge { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+.canvas .arrow { fill: var(--muted); }
+.canvas figcaption { font-size: var(--step--1); color: var(--muted); margin-top: 6px; }
+
+/* Stats */
+.stats { border-block: 1px solid var(--line); background: var(--surface); }
+.stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat { padding: 22px 20px; display: grid; gap: 2px; border-left: 1px solid var(--line); }
+.stat:first-child { border-left: 0; padding-left: 0; }
+.stat b { font-family: var(--font-display); font-size: var(--step-2); font-weight: 800; font-variant-numeric: tabular-nums; }
+.stat span { color: var(--muted); font-size: 0.9rem; }
+@media (max-width: 760px) {
+  .stats .wrap { grid-template-columns: 1fr 1fr; }
+  .stat { border-left: 0; padding-left: 0; }
+  .stat:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
+  .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+}
+
+/* Sections */
+section.block { padding-block: 72px 8px; }
+.head { display: grid; gap: 8px; margin-bottom: 28px; }
+.head h2 { font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.4rem); font-weight: 800; }
+.head p { color: var(--muted); max-width: 40em; }
+
+/* Case studies */
+.work { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+@media (max-width: 760px) { .work { grid-template-columns: 1fr; } }
+.case {
+  min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 22px; display: grid; gap: 12px; align-content: start;
+}
+.case .top-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.case h3 { font-size: var(--step-1); font-weight: 700; }
+.metric { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ok); background: var(--ok-soft); padding: 3px 8px; border-radius: 99px; white-space: nowrap; }
+.case p { color: var(--muted); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+.tags span { font-family: var(--font-mono); font-size: 0.75rem; border: 1px solid var(--line); padding: 2px 8px; border-radius: 6px; color: var(--ink); }
+.case.wide { grid-column: 1 / -1; }
+
+/* Timeline */
+.timeline { display: grid; gap: 0; border-left: 2px solid var(--line); margin-left: 7px; }
+.role-item { position: relative; padding: 0 0 36px 28px; display: grid; gap: 8px; }
+.role-item:last-child { padding-bottom: 0; }
+.role-item::before {
+  content: ""; position: absolute; left: -9px; top: 6px; width: 16px; height: 16px; border-radius: 4px;
+  background: var(--surface); border: 2px solid var(--muted);
+}
+.role-item.current::before { background: var(--accent); border-color: var(--accent); }
+.role-item .when { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); }
+.role-item h3 { font-size: var(--step-1); }
+.role-item h3 small { font-family: var(--font-body); font-weight: 500; color: var(--muted); font-size: 0.95rem; }
+.role-item ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; max-width: 46em; }
+.role-item li::marker { color: var(--accent); }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 32px; }
+@media (max-width: 860px) { .skills { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .skills { grid-template-columns: 1fr; } }
+.skill-group { min-width: 0; display: grid; gap: 10px; align-content: start; }
+.skill-group h3 { font-size: 1rem; font-weight: 700; }
+
+/* Awards & education */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 760px) { .split { grid-template-columns: 1fr; } }
+.plain { border-top: 2px solid var(--ink); padding-top: 16px; display: grid; gap: 18px; align-content: start; }
+.plain .item { display: grid; gap: 4px; }
+.plain .item b { font-family: var(--font-display); font-size: 1.1rem; }
+.plain .item span { color: var(--muted); }
+.year { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); }
+
+/* Contact */
+.contact { padding-block: 80px 64px; }
+.contact-card {
+  background: var(--ink); color: var(--bg); border-radius: 16px; padding: clamp(24px, 4vw, 48px);
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center;
+}
+@media (max-width: 760px) { .contact-card { grid-template-columns: 1fr; } }
+.contact-card h2 { font-size: clamp(1.75rem, 1.3rem + 2vw, 2.75rem); font-weight: 800; }
+.contact-card p { opacity: .8; margin-top: 10px; max-width: 30em; }
+.links { display: grid; gap: 10px; min-width: 0; }
+.link-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px;
+  border: 1px solid color-mix(in srgb, var(--bg) 25%, transparent); border-radius: 10px; text-decoration: none; min-width: 0;
+}
+.link-row .k { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: .06em; text-transform: uppercase; opacity: .7; }
+.link-row .v { font-weight: 500; overflow-wrap: anywhere; user-select: all; }
+.link-row:hover { border-color: var(--bg); }
+.copy {
+  background: var(--bg); color: var(--ink); border: 0; border-radius: 6px; padding: 6px 10px;
+  font-family: var(--font-mono); font-size: 0.75rem; cursor: pointer; white-space: nowrap;
+}
+footer { padding-block: 0 40px; color: var(--muted); font-size: var(--step--1); }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+</style>
+<style>[hidden]{display:none!important} body{margin:0} img{max-width:100%}</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#home"><span class="node">YK</span>Yaswanth Kumar</a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="role">Full Stack .NET Developer · Kovai.co · Coimbatore, India</p>
+        <h1>I build SaaS features end to end, and put <em>AI to work</em> in production.</h1>
+        <p class="lede">3+ years shipping .NET 8 APIs, Angular 19 front ends and MongoDB data models on Azure. Lately: OpenAI and RAG features for customers, and Claude-powered workflows for my engineering team.</p>
+        <div class="actions">
+          <a class="btn primary" href="#work">See my work</a>
+          <a class="btn" href="https://www.linkedin.com/in/yaswanth-kumar-software-engineer" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/YASWANTH-KUMAR-S" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <figure class="canvas" style="margin:0">
+        <div class="label"><span>Production debugging workflow</span><span>Claude Code skill</span></div>
+        <svg viewBox="0 0 420 330" role="img" aria-labelledby="flowTitle">
+          <title id="flowTitle">Flow: production exception, root cause found, fix generated, Azure DevOps bug created, pull request raised with reviewers</title>
+          <defs>
+            <marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path class="arrow" d="M0,0 L8,4 L0,8 z"/>
+            </marker>
+          </defs>
+          <path class="edge" d="M210 52 V78" marker-end="url(#ah)"/>
+          <path class="edge" d="M210 122 V148" marker-end="url(#ah)"/>
+          <path class="edge" d="M150 192 C150 212 110 212 110 232" marker-end="url(#ah)"/>
+          <path class="edge" d="M270 192 C270 212 310 212 310 232" marker-end="url(#ah)"/>
+
+          <g class="n" data-i="0"><rect x="110" y="8" width="200" height="44" rx="9"/><text x="210" y="28" text-anchor="middle">Production exception</text><text class="sub" x="210" y="43" text-anchor="middle">app-wise logs</text></g>
+          <g class="n" data-i="1"><rect x="110" y="80" width="200" height="44" rx="9"/><text x="210" y="100" text-anchor="middle">Root cause identified</text><text class="sub" x="210" y="115" text-anchor="middle">trace + code context</text></g>
+          <g class="n" data-i="2"><rect x="110" y="150" width="200" height="44" rx="9"/><text x="210" y="170" text-anchor="middle">Fix generated</text><text class="sub" x="210" y="185" text-anchor="middle">team review standard</text></g>
+          <g class="n" data-i="3"><rect x="20" y="234" width="180" height="44" rx="9"/><text x="110" y="254" text-anchor="middle">ADO bug created</text><text class="sub" x="110" y="269" text-anchor="middle">Azure DevOps</text></g>
+          <g class="n" data-i="3"><rect x="220" y="234" width="180" height="44" rx="9"/><text x="310" y="254" text-anchor="middle">PR raised</text><text class="sub" x="310" y="269" text-anchor="middle">reviewers assigned</text></g>
+          <text x="210" y="318" text-anchor="middle" style="fill:var(--muted);font-family:var(--font-mono);font-size:10.5px">exception to reviewed PR, end to end</text>
+        </svg>
+        <figcaption>One of the workflows I built at Kovai.co: it triages production exceptions without manual hand-offs.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="stats" aria-label="Highlights">
+    <div class="wrap">
+      <div class="stat"><b>3+ yrs</b><span>production SaaS at Kovai.co</span></div>
+      <div class="stat"><b>49</b><span>US customer projects on my Decision Tree module</span></div>
+      <div class="stat"><b>100+</b><span>customers migrated, zero data loss</span></div>
+      <div class="stat"><b>100%</b><span>SLA/ETA met on production support</span></div>
+    </div>
+  </div>
+
+  <section class="block" id="work">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Selected work</span>
+        <h2>Things I've shipped</h2>
+        <p>Production features at Kovai.co, each one owned from design through rollout.</p>
+      </div>
+      <div class="work">
+        <article class="case">
+          <div class="top-row"><h3>Multi-JWT authentication</h3><span class="metric">4 projects</span></div>
+          <p>Up to 5 JWT configurations per project, running alongside SSO with domain-based routing. During the rollout I found and closed a critical production gap where client-secret validation was missing during JWT client ID generation.</p>
+          <div class="tags"><span>ASP.NET Core</span><span>JWT</span><span>SSO</span><span>Security</span></div>
+        </article>
+        <article class="case">
+          <div class="top-row"><h3>Decision Tree module</h3><span class="metric">49 US projects</span></div>
+          <p>Owned the GoJS interaction layer: multi-node reordering, cloning, deletion, zoom controls and orphan-node indicators. It became a key sales differentiator, and I packaged it as a reusable library for other teams.</p>
+          <div class="tags"><span>Angular</span><span>GoJS</span><span>TypeScript</span></div>
+        </article>
+        <article class="case">
+          <div class="top-row"><h3>AI production debugging</h3><span class="metric">end to end</span></div>
+          <p>A Claude Code skill that triages production exceptions, finds the root cause, generates the fix, creates the Azure DevOps bug and raises the PR with reviewers assigned, following the team's code-review standard.</p>
+          <div class="tags"><span>Claude Code</span><span>Azure DevOps</span><span>App Insights</span></div>
+        </article>
+        <article class="case">
+          <div class="top-row"><h3>Duplicate content detection</h3><span class="metric">OpenAI + RAG</span></div>
+          <p>AI-driven duplicate detection built on the OpenAI API with retrieval-augmented generation, plus a storage-queue-triggered audit notification pipeline. Also led the product's first NgRx Signal Store adoption.</p>
+          <div class="tags"><span>OpenAI API</span><span>RAG</span><span>Azure Queues</span><span>NgRx</span></div>
+        </article>
+        <article class="case">
+          <div class="top-row"><h3>Platform integration &amp; migration</h3><span class="metric">0 data loss</span></div>
+          <p>Integrated external platforms through customer-exposed APIs and transformed HTML/XML content through internal APIs, migrating content for 100+ customers without losing a record.</p>
+          <div class="tags"><span>.NET 8</span><span>REST APIs</span><span>MongoDB</span></div>
+        </article>
+        <article class="case">
+          <div class="top-row"><h3>Modernization &amp; performance</h3><span class="metric">300+ files</span></div>
+          <p>Moved legacy JavaScript and jQuery modules to Angular 19, turned the blocking Import Document API into an async background job, centralized Algolia ACL queries into one builder, and replaced fragmented avatar code with one reusable component.</p>
+          <div class="tags"><span>Angular 19</span><span>Azure Functions</span><span>Algolia</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Experience</span>
+        <h2>Three roles, one product team</h2>
+        <p>I joined Kovai.co as an intern and grew with the product.</p>
+      </div>
+      <div class="timeline">
+        <div class="role-item current">
+          <span class="when">Jan 2026 – Present</span>
+          <h3>Software Engineer <small>· Kovai.co</small></h3>
+          <ul>
+            <li>Architected Multi-JWT authentication across 4 projects and closed a critical client-secret validation gap.</li>
+            <li>Built the Claude Code production debugging workflow, from exception to PR.</li>
+            <li>Met SLA/ETA commitments 100% on production support through log-based root cause analysis.</li>
+          </ul>
+        </div>
+        <div class="role-item">
+          <span class="when">Jul 2024 – Dec 2025</span>
+          <h3>Associate Software Engineer <small>· Kovai.co</small></h3>
+          <ul>
+            <li>Owned the GoJS Decision Tree interaction layer, now used by 49 US customer projects.</li>
+            <li>Shipped OpenAI/RAG duplicate detection and the product's first NgRx Signal Store adoption.</li>
+            <li>Migrated content for 100+ customers with zero data loss; modernized legacy modules to Angular 19.</li>
+          </ul>
+        </div>
+        <div class="role-item">
+          <span class="when">Apr 2023 – May 2024</span>
+          <h3>Software Engineer Intern <small>· Kovai.co</small></h3>
+          <ul>
+            <li>Built a reusable Angular avatar component and refactored 300+ files to use it.</li>
+            <li>Revamped the product dashboard and Project Creation tile from design inputs.</li>
+            <li>Integrated RESTful APIs and resolved production defects through root cause analysis.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Skills</span>
+        <h2>What I work with</h2>
+      </div>
+      <div class="skills">
+        <div class="skill-group"><h3>Backend</h3><div class="tags"><span>C#</span><span>.NET 8</span><span>ASP.NET Core Web API</span><span>LINQ</span><span>REST APIs</span><span>xUnit</span></div></div>
+        <div class="skill-group"><h3>Frontend</h3><div class="tags"><span>Angular 19</span><span>TypeScript</span><span>NgRx Signal Store</span><span>RxJS</span><span>GoJS</span><span>HTML/CSS</span></div></div>
+        <div class="skill-group"><h3>Azure</h3><div class="tags"><span>Functions</span><span>Service Bus</span><span>Storage Queues</span><span>Blob Storage</span><span>Key Vault</span><span>App Insights</span></div></div>
+        <div class="skill-group"><h3>Data &amp; search</h3><div class="tags"><span>MongoDB Atlas</span><span>SQL Server</span><span>Algolia</span></div></div>
+        <div class="skill-group"><h3>AI</h3><div class="tags"><span>OpenAI API</span><span>RAG</span><span>Claude Code</span><span>GitHub Copilot</span></div></div>
+        <div class="skill-group"><h3>Practice</h3><div class="tags"><span>Azure DevOps</span><span>CI/CD</span><span>Git</span><span>Postman</span><span>Swagger</span><span>Root cause analysis</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap split">
+      <div class="plain">
+        <span class="label">Recognition</span>
+        <div class="item"><span class="year">2026</span><b>Best Impact Developer Award</b><span>Multi-JWT authentication rollout and production support with SLA/ETA met 100%.</span></div>
+        <div class="item"><span class="year">2024</span><b>Technical Excellence – Above and Beyond</b><span>Proactive bug resolution, technical debt reduction and feature delivery.</span></div>
+      </div>
+      <div class="plain">
+        <span class="label">Education</span>
+        <div class="item"><span class="year">2020 – 2024</span><b>B.E. Computer Science and Engineering</b><span>Sri Eshwar College of Engineering, Coimbatore · GPA 8.45 / 10</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="contact-card">
+        <div>
+          <h2>Let's talk.</h2>
+          <p>Building something with .NET, Angular or AI in production? I'd like to hear about it.</p>
+        </div>
+        <div class="links">
+          <div class="link-row">
+            <div style="min-width:0"><div class="k">Email</div><div class="v" id="email">yaswanthkumarravi@gmail.com</div></div>
+            <button class="copy" id="copyEmail" type="button">Copy</button>
+          </div>
+          <a class="link-row" href="https://www.linkedin.com/in/yaswanth-kumar-software-engineer" target="_blank" rel="noopener">
+            <div style="min-width:0"><div class="k">LinkedIn</div><div class="v">yaswanth-kumar-software-engineer</div></div><span aria-hidden="true">↗</span>
+          </a>
+          <a class="link-row" href="https://github.com/YASWANTH-KUMAR-S" target="_blank" rel="noopener">
+            <div style="min-width:0"><div class="k">GitHub</div><div class="v">YASWANTH-KUMAR-S</div></div><span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Yaswanth Kumar</span><span>Coimbatore, India</span></div>
+</footer>
+
+<script>
+  // Step the highlight through the workflow nodes.
+  (function () {
+    const nodes = [...document.querySelectorAll('.canvas .n')];
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!nodes.length) return;
+    if (reduce) { nodes.forEach(n => n.classList.add('on')); return; }
+    let i = 0;
+    const steps = 4;
+    function tick() {
+      nodes.forEach(n => n.classList.toggle('on', Number(n.dataset.i) === i));
+      i = (i + 1) % steps;
+    }
+    tick();
+    setInterval(tick, 1400);
+  })();
+
+  // Copy email.
+  document.getElementById('copyEmail').addEventListener('click', function () {
+    const btn = this;
+    const text = document.getElementById('email').textContent.trim();
+    const done = () => { btn.textContent = 'Copied'; setTimeout(() => btn.textContent = 'Copy', 1600); };
+    const fallback = () => {
+      const r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Selected';
+      setTimeout(() => btn.textContent = 'Copy', 1600);
+    };
+    try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+  });
+</script>
+
+</body>
+</html>
